@@ -1,5 +1,5 @@
 
-namespace folder_replicator.src
+namespace FolderReplicator.Src
 {
     public class FileTreeManager
     {
@@ -28,7 +28,7 @@ namespace folder_replicator.src
         {
             var relativePath = Path.GetRelativePath(_rootPath, currentPath);
             if (relativePath == ".") relativePath = "";
-            
+
             var fileInfo = new FileInfo(currentPath);
             _files[relativePath] = fileInfo;
 
@@ -83,9 +83,9 @@ namespace folder_replicator.src
 
             foreach (var oldChildPath in childrenToUpdate)
             {
-                var newChildPath = newParentPath + oldChildPath.Substring(oldParentPath.Length);
+                var newChildPath = string.Concat(newParentPath,oldChildPath.Substring(oldParentPath.Length));
                 var childInfo = _files[oldChildPath];
-                
+
                 _files.Remove(oldChildPath);
                 childInfo.FullPath = Path.Combine(_rootPath, newChildPath);
                 _files[newChildPath] = childInfo;
@@ -94,10 +94,9 @@ namespace folder_replicator.src
 
         public void CopyFile(string relativePath, string destinationRoot)
         {
-            if (!_files.ContainsKey(relativePath))
+            if (!_files.TryGetValue(relativePath, out var fileInfo))
                 throw new ArgumentException($"File not found: {relativePath}");
 
-            var fileInfo = _files[relativePath];
             var sourcePath = Path.Combine(_rootPath, relativePath);
             var destPath = Path.Combine(destinationRoot, relativePath);
 
@@ -119,10 +118,9 @@ namespace folder_replicator.src
 
         public void DeleteFile(string relativePath)
         {
-            if (!_files.ContainsKey(relativePath))
+            if (!_files.TryGetValue(relativePath, out var fileInfo))
                 return;
 
-            var fileInfo = _files[relativePath];
             var fullPath = Path.Combine(_rootPath, relativePath);
 
             if (fileInfo.IsDirectory)
@@ -141,6 +139,26 @@ namespace folder_replicator.src
             }
 
             _files.Remove(relativePath);
+        }
+        
+        public static bool IsSubPath(string basePath, string testPath)
+        {
+            var relative = Path.GetRelativePath(basePath, testPath);
+            return !relative.StartsWith("..") && !Path.IsPathRooted(relative);
+        }
+
+        public static int CountUnescapedSlashes(string path)
+        {
+            int count = 0;
+            for (int i = 0; i < path.Length; i++)
+            {
+                if (path[i] == '/')
+                {
+                    if (i == 0 || path[i - 1] != '\\')
+                        count++;
+                }
+            }
+            return count;
         }
     }
 }

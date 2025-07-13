@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace folder_replicator.src
+namespace FolderReplicator.Src
 {
     public class Logger
     {
@@ -21,10 +17,8 @@ namespace folder_replicator.src
             }
             try
             {
-                using (var writer = new System.IO.StreamWriter(LogFile, true))
-                {
-                    writer.WriteLine($"{DateTime.Now}: {message}");
-                }
+                using var writer = new StreamWriter(LogFile, true);
+                writer.WriteLine($"{DateTime.Now}: {message}");
             }
             catch (Exception ex)
             {

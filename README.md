@@ -16,7 +16,7 @@ The Folder Replicator is a C# application designed to replicate folders from a s
 ## Usage
 To run the application, use the following command:
 ```
-dotnet run --project folder-replicator.csproj --source <SourcePath> --destination <DestinationPath>
+dotnet run --project FolderReplicator.csproj --source <SourcePath> --destination <DestinationPath>
 ```
 
 Replace `<SourcePath>` and `<DestinationPath>` with the actual paths you want to use.

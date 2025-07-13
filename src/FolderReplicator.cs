@@ -1,54 +1,47 @@
-
-namespace folder_replicator.src
+namespace FolderReplicator.Src
 {
     public class FolderReplicator
     {
-        public Options options { get; set; }
+        public Options Options { get; set; }
 
         public FolderReplicator(Options options)
         {
-            this.options = options;
-            this.options.Source = Path.GetFullPath(options.Source);
-            this.options.Destination = Path.GetFullPath(options.Destination);
-            this.options.LogFile = Path.GetFullPath(options.LogFile);
-            Logger.Instance.VerboseConsole = this.options.Verbose;
+            Options = options;
         }
 
-        public FolderReplicator(string[] args) : this(Helpers.ParseArgs(args)) { }
+        public FolderReplicator(string[] args) : this(Options.ParseArgs(args)) { }
 
-        public bool StartLoop()
+        public void StartLoop()
         {
-            if (options.Verbose)
+            if (Options.Verbose)
             {
                 Console.WriteLine("Starting Folder Replicator...");
             }
 
-            bool valid = ValidatePaths();
-
-            while (valid)
+            while (true)
             {
-                if (options.Once && options.Verbose)
+                if (Options.Once && Options.Verbose)
                 {
                     Console.WriteLine("Once option is enabled. Syncing once...");
                 }
-                if (options.Verbose)
+                if (Options.Verbose)
                 {
-                    Console.WriteLine($"Syncing from {options.Source} to {options.Destination}...");
+                    Console.WriteLine($"Syncing from {Options.Source} to {Options.Destination}...");
                 }
 
                 Replicate();
 
-                if (options.Once)
+                if (Options.Once)
                 {
                     Console.WriteLine("Exiting...");
 
                     break;
                 }
-                if (options.Verbose)
+                if (Options.Verbose)
                 {
-                    Console.WriteLine($"Waiting for {options.Interval} minutes before the next sync...");
+                    Console.WriteLine($"Waiting for {Options.Interval} minutes before the next sync...");
                 }
-                Thread.Sleep((int)(options.Interval * 60000.0d));
+                Thread.Sleep((int)(Options.Interval * 60000.0d));
             }
 
             Console.WriteLine("Folder Replicator is finished. Press any key to exit...");
@@ -60,90 +53,41 @@ namespace folder_replicator.src
             {
                 Console.WriteLine("No console input available. Exiting...");
             }
-            return valid;
         }
 
-        public bool ValidatePaths()
-        {
-            var sourcePath = options.Source;
-            var destinationPath = options.Destination;
-
-            if (string.IsNullOrEmpty(sourcePath) || string.IsNullOrEmpty(destinationPath))
-            {
-                Console.WriteLine("Source and Destination paths must be provided.");
-                return false;
-            }
-
-            if (!Directory.Exists(sourcePath))
-            {
-                Console.WriteLine($"Source directory '{sourcePath}' does not exist.");
-                return false;
-            }
-
-            if (Helpers.IsSubPath(sourcePath, destinationPath))
-            {
-                Console.WriteLine($"Destination '{destinationPath}' cannot be a subpath of source '{sourcePath}'.");
-                return false;
-            }
-
-            if (Helpers.IsSubPath(destinationPath, sourcePath))
-            {
-                Console.WriteLine($"Source '{sourcePath}' cannot be a subpath of destination '{destinationPath}'.");
-                return false;
-            }
-
-            if (Helpers.IsSubPath(destinationPath, options.LogFile) || Helpers.IsSubPath(sourcePath, options.LogFile))
-            {
-                Console.WriteLine($"Log file '{options.LogFile}' cannot be a subpath of destination '{destinationPath}' or source '{sourcePath}'.");
-                return false;
-            }
-
-            if (!Directory.Exists(destinationPath))
-            {
-                try
-                {
-                    Directory.CreateDirectory(destinationPath);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Failed to create destination directory '{destinationPath}': {ex.Message}");
-                    return false;
-                }
-            }
-            return true;
-        }
+        
 
         public void Replicate()
         {
-            var sourceTree = new FileTreeManager(options.Source);
-            var destinationTree = new FileTreeManager(options.Destination);
+            var sourceTree = new FileTreeManager(Options.Source);
+            var destinationTree = new FileTreeManager(Options.Destination);
 
-            var movedRenamed = FindAndMoveRenamedFiles(sourceTree, destinationTree);
+            var movedRenamed = RenameAndMoveFiles(sourceTree, destinationTree);
             var copied = CopyAddedFiles(sourceTree, destinationTree);
             var removed = RemoveDeletedFiles(sourceTree, destinationTree);
             var changed = UpdateChangedFiles(sourceTree, destinationTree);
 
             var totalErrors = movedRenamed.Item1 + copied.Item1 + removed.Item1 + changed.Item1;
 
-            if (options.Verbose)
+            if (Options.Verbose)
             {
                 Console.WriteLine($"Sync completed with {movedRenamed.Item2} renamed/moved files, " +
-                            $"{copied.Item2} added files, " +
-                            $"{removed.Item2} deleted files, " +
-                            $"{changed.Item2} updated files, " +
-                            $"and {totalErrors} errors.");
+                    $"{copied.Item2} added files, " +
+                    $"{removed.Item2} deleted files, " +
+                    $"{changed.Item2} updated files, " +
+                    $"and {totalErrors} errors.");
             }
         }
 
-        private Tuple<int, int> FindAndMoveRenamedFiles(FileTreeManager sourceTree, FileTreeManager destinationTree)
+        private Tuple<int, int> RenameAndMoveFiles(FileTreeManager sourceTree, FileTreeManager destinationTree)
         {
             int errorCount = 0;
-            int movedCount = 0;
+            int movedOrRenamedCount = 0;
 
             var sourceFiles = sourceTree.GetFiles();
             var destinationFiles = destinationTree.GetFiles();
 
-            foreach (var (relativePath, sourceFile) in sourceFiles.OrderBy(pair => Helpers.CountUnescapedSlashes(pair.Key)))
+            foreach (var (relativePath, sourceFile) in sourceFiles.OrderBy(pair => FileTreeManager.CountUnescapedSlashes(pair.Key)))
             {
                 try
                 {
@@ -157,14 +101,14 @@ namespace folder_replicator.src
                     if (matchingFiles.Count == 1)
                     {
                         var matchingFile = matchingFiles[0];
-                        var oldPath = Path.GetRelativePath(options.Destination, matchingFile.FullPath);
+                        var oldPath = Path.GetRelativePath(Options.Destination, matchingFile.FullPath);
 
                         if (oldPath != relativePath)
                         {
                             Logger.Instance.Log($"File was renamed/moved: {oldPath} to {relativePath}");
                             destinationTree.MoveFile(oldPath, relativePath);
                             Logger.Instance.Log($"File was moved successfully in destination: {oldPath} to {relativePath}");
-                            movedCount++;
+                            movedOrRenamedCount++;
                         }
                     }
                 }
@@ -175,7 +119,7 @@ namespace folder_replicator.src
                 }
             }
 
-            return Tuple.Create(errorCount, movedCount);
+            return Tuple.Create(errorCount, movedOrRenamedCount);
         }
 
         private Tuple<int, int> CopyAddedFiles(FileTreeManager sourceTree, FileTreeManager destinationTree)
@@ -187,7 +131,7 @@ namespace folder_replicator.src
             var destinationFiles = destinationTree.GetFiles();
 
             var filesToAdd = sourceFiles.Keys.Except(destinationFiles.Keys)
-                .OrderBy(path => Helpers.CountUnescapedSlashes(path));
+                .OrderBy(path => FileTreeManager.CountUnescapedSlashes(path));
 
             foreach (var relativePath in filesToAdd)
             {
@@ -195,7 +139,7 @@ namespace folder_replicator.src
                 try
                 {
                     Logger.Instance.Log($"{fileType} was added: {relativePath}");
-                    sourceTree.CopyFile(relativePath, options.Destination);
+                    sourceTree.CopyFile(relativePath, Options.Destination);
                     Logger.Instance.Log($"{fileType} was copied successfully: {relativePath}");
                     addedCount++;
                 }
@@ -218,7 +162,7 @@ namespace folder_replicator.src
             var destinationFiles = destinationTree.GetFiles();
 
             var filesToDelete = destinationFiles.Keys.Except(sourceFiles.Keys)
-                .OrderByDescending(path => Helpers.CountUnescapedSlashes(path));
+                .OrderByDescending(path => FileTreeManager.CountUnescapedSlashes(path));
 
             foreach (var relativePath in filesToDelete)
             {
@@ -260,7 +204,7 @@ namespace folder_replicator.src
                     if (!sourceFile.IsDirectory && sourceFile.Hash != destinationFile.Hash)
                     {
                         Logger.Instance.Log($"File was modified: {relativePath}");
-                        sourceTree.CopyFile(relativePath, options.Destination);
+                        sourceTree.CopyFile(relativePath, Options.Destination);
                         Logger.Instance.Log($"File was modified successfully in destination: {relativePath}");
                         updatedCount++;
                     }
@@ -274,5 +218,6 @@ namespace folder_replicator.src
 
             return Tuple.Create(errorCount, updatedCount);
         }
+
     }
 }

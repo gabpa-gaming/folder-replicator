@@ -1,5 +1,5 @@
 
-namespace folder_replicator.src
+namespace FolderReplicator.Src
 {
     public class FileInfo
     {
@@ -27,7 +27,7 @@ namespace folder_replicator.src
                 Size = info.Length;
                 LastModified = info.LastWriteTime;
                 Created = info.CreationTime;
-                Hash = Helpers.ComputeSHA256(File.ReadAllBytes(fullPath));
+                Hash = HashHelpers.ComputeSHA256(File.ReadAllBytes(fullPath));
             }
         }
 
@@ -36,7 +36,7 @@ namespace folder_replicator.src
             var entries = Directory.GetFileSystemEntries(dirPath)
                 .OrderBy(x => x)
                 .Select(x => new FileInfo(x).Hash);
-            return Helpers.ComputeSHA256(string.Join("", entries));
+            return HashHelpers.ComputeSHA256(string.Join("", entries));
         }
     }
 }

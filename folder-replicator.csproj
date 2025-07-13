@@ -9,12 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="bsdiff" Version="1.1.0" />
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <PackageReference Include="DiffLib" Version="2025.0.0" />
-    <PackageReference Include="DiffPlex" Version="1.8.0" />
-    <PackageReference Include="Hyldahl.Hashing" Version="1.0.0.3" />
-    <PackageReference Include="SSDEEP.NET" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

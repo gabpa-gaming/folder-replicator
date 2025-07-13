@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using BsDiff;
 using CommandLine;
 using Microsoft.VisualBasic;
 
@@ -121,14 +122,16 @@ namespace folder_replicator.src
 
         public void Replicate()
         {
-            var source = new FileObject(options.Source, options.LogFile);
-            var destination = new FileObject(options.Destination, options.LogFile);
+            var source = new FileObject(options.Source, null);
+            var destination = new FileObject(options.Destination, null);
 
-            var sourceFiles = source.Flatten(source);
-            var destinationFiles = destination.Flatten(destination);
+            var sourceFiles = source.Flatten();
+            var destinationFiles = destination.Flatten();
 
             var sourceDict = sourceFiles.ToDictionary(path => Path.GetRelativePath(options.Source, path.Path));
             var destinationDict = destinationFiles.ToDictionary(path => Path.GetRelativePath(options.Destination, path.Path));
+
+            var movedRenamed = RenameAndMoveFiles(sourceDict, destinationDict);
 
             var copied = CopyAddedFiles(sourceDict, destinationDict);
 
@@ -136,15 +139,13 @@ namespace folder_replicator.src
 
             var changed = UpdateChangedFiles(sourceDict, destinationDict);
 
-            var totalErrors = copied.Item1 + removed.Item1 + changed.Item1;
+            var totalErrors = movedRenamed.Item1 + copied.Item1 + removed.Item1 + changed.Item1;
 
-            if (options.Verbose)
-            {
-                Console.WriteLine($"Sync completed with {copied.Item2} added files, " +
-                            $"{removed.Item2} deleted files, " +
-                            $"{changed.Item2} updated files, " +
-                            $"and {totalErrors} errors.");
-            }
+            Logger.Instance.Log($"Sync completed with {movedRenamed.Item2} renamed/moved files, " +
+                $"{copied.Item2} added files, " +
+                $"{removed.Item2} deleted files, " +
+                $"{changed.Item2} updated files, " +
+                $"and {totalErrors} errors.");
 
         }
 
@@ -197,17 +198,32 @@ namespace folder_replicator.src
                 Logger.Instance.Log($"File was deleted: {relativePath}");
                 try
                 {
+                    var fullPath = Path.Combine(options.Destination, relativePath);
                     if (destinationDict[relativePath].IsDirectory)
                     {
-                        Directory.Delete(Path.Combine(options.Destination, relativePath), true);
-                        Logger.Instance.Log($"Directory: {relativePath} was deleted successfully.");
-                        deletedCount++;
+                        if (Directory.Exists(fullPath))
+                        {
+                            Directory.Delete(fullPath, true);
+                            Logger.Instance.Log($"Directory: {relativePath} was deleted successfully.");
+                            deletedCount++;
+                        }
+                        else
+                        {
+                            Logger.Instance.Log($"Directory not found: {fullPath}");
+                        }
                     }
                     else
                     {
-                        File.Delete(Path.Combine(options.Destination, relativePath));
-                        Logger.Instance.Log($"File: {relativePath} was deleted successfully.");
-                        deletedCount++;
+                        if (File.Exists(fullPath))
+                        {
+                            File.Delete(fullPath);
+                            Logger.Instance.Log($"File: {relativePath} was deleted successfully.");
+                            deletedCount++;
+                        }
+                        else
+                        {
+                            Logger.Instance.Log($"File not found: {fullPath}");
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -226,6 +242,11 @@ namespace folder_replicator.src
             int updatedCount = 0;
             foreach (var relativePath in sourceDict.Keys.Intersect(destinationDict.Keys))
             {
+                if (sourceDict[relativePath].IsDirectory)
+                {
+                    continue;
+                }
+
                 if (sourceDict[relativePath].ContentsHash != destinationDict[relativePath].ContentsHash)
                 {
                     Logger.Instance.Log($"File was modified: {relativePath}");
@@ -247,6 +268,86 @@ namespace folder_replicator.src
             return Tuple.Create(errorCount, updatedCount);
         }
 
-        
+        public Tuple<int, int> RenameAndMoveFiles(Dictionary<string, FileObject> sourceDict, Dictionary<string, FileObject> destinationDict)
+        //// <summary> Returns a tuple with the number of errors and renamed/moved files. </summary>
+        {
+            int errorCount = 0;
+            int renamedMovedCount = 0;
+
+            foreach (var relativePath in sourceDict.Keys.OrderBy(path => Helpers.CountUnescapedSlashes(path)))
+            {
+                try
+                {
+                    if (destinationDict.ContainsKey(relativePath))
+                    {
+                        continue;
+                    }
+
+                    var matchingFiles = destinationDict.Values
+                        .Where(destFile => destFile.ContentsHash == sourceDict[relativePath].ContentsHash)
+                        .ToList();
+
+                    if (matchingFiles.Count == 1)
+                    {
+                        var matchingFile = matchingFiles[0];
+                        var newPath = Path.Combine(options.Destination, relativePath);
+
+                        if (matchingFile.Path != newPath) 
+                        {
+                            var oldKey = Path.GetRelativePath(options.Destination, matchingFile.Path);
+                                                        var parentDir = Directory.GetParent(newPath)?.FullName;
+                            if (parentDir != null && !Directory.Exists(parentDir))
+                            {
+                                Directory.CreateDirectory(parentDir);
+                                Logger.Instance.Log($"Created parent directory: {parentDir}");
+                            }
+                            matchingFile.Move(newPath);
+
+                            destinationDict.Remove(oldKey);
+                            destinationDict[relativePath] = matchingFile;
+
+                            if (matchingFile.IsDirectory)
+                            {
+                                UpdateChildPathsInDictionary(matchingFile, oldKey, relativePath, destinationDict);
+                            }
+
+                            renamedMovedCount++;
+                            Logger.Instance.Log($"File was renamed/moved: {oldKey} to {relativePath}");
+                        }
+                        else
+                        {
+                            Logger.Instance.Log($"Skipping move operation as source and destination paths are identical: {newPath}");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.Instance.Log($"Error while renaming or moving a file: {ex.Message}");
+                    errorCount++;
+                }
+            }
+
+            return Tuple.Create(errorCount, renamedMovedCount);
+        }
+
+        private void UpdateChildPathsInDictionary(FileObject parent, string oldParentKey, string newParentKey, Dictionary<string, FileObject> destinationDict)
+        {
+            foreach (var child in parent.Files)
+            {
+                var oldChildKey = Path.Combine(oldParentKey, child.Name);
+                var newChildKey = Path.Combine(newParentKey, child.Name);
+
+                if (destinationDict.ContainsKey(oldChildKey))
+                {
+                    destinationDict.Remove(oldChildKey);
+                }
+                destinationDict[newChildKey] = child;
+
+                if (child.IsDirectory)
+                {
+                    UpdateChildPathsInDictionary(child, oldChildKey, newChildKey, destinationDict);
+                }
+            }
+        }
     }
 }

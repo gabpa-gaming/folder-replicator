@@ -174,3 +174,466 @@
 11.07.2025 09:20:09: File: New Folder/mmmm.txt was deleted successfully.
 11.07.2025 09:20:09: File was deleted: New Folder
 11.07.2025 09:20:09: Directory: New Folder was deleted successfully.
+12.07.2025 23:04:36: File was added: asd.txt
+12.07.2025 23:04:36: Copying file /home/gabrys/Pulpit/original/asd.txt to /home/gabrys/Pulpit/replica/asd.txt...
+12.07.2025 23:04:36: File: /home/gabrys/Pulpit/original/asd.txt was copied successfully to /home/gabrys/Pulpit/replica/asd.txt.
+12.07.2025 23:04:36: File was modified: adsa.txt
+12.07.2025 23:04:36: File: /home/gabrys/Pulpit/original/adsa.txt was updated successfully to /home/gabrys/Pulpit/replica/adsa.txt.
+12.07.2025 23:04:36: File was modified: flower cat.png
+12.07.2025 23:04:36: File: /home/gabrys/Pulpit/original/flower cat.png was updated successfully to /home/gabrys/Pulpit/replica/flower cat.png.
+12.07.2025 23:04:36: File was modified: popp.txt
+12.07.2025 23:04:36: File: /home/gabrys/Pulpit/original/popp.txt was updated successfully to /home/gabrys/Pulpit/replica/popp.txt.
+12.07.2025 23:04:36: File was modified: .
+12.07.2025 23:04:36: Error updating file .: Access to the path '/home/gabrys/Pulpit/original' is denied.
+12.07.2025 23:25:28: File was added: asd.txt
+12.07.2025 23:25:28: Copying file /home/gabrys/Pulpit/original/asd.txt to /home/gabrys/Pulpit/replica/asd.txt...
+12.07.2025 23:25:28: File: /home/gabrys/Pulpit/original/asd.txt was copied successfully to /home/gabrys/Pulpit/replica/asd.txt.
+12.07.2025 23:25:28: File was added: bat.png
+12.07.2025 23:25:28: Copying file /home/gabrys/Pulpit/original/bat.png to /home/gabrys/Pulpit/replica/bat.png...
+12.07.2025 23:25:28: File: /home/gabrys/Pulpit/original/bat.png was copied successfully to /home/gabrys/Pulpit/replica/bat.png.
+12.07.2025 23:25:28: File was added: cat.jpg
+12.07.2025 23:25:28: Copying file /home/gabrys/Pulpit/original/cat.jpg to /home/gabrys/Pulpit/replica/cat.jpg...
+12.07.2025 23:25:28: File: /home/gabrys/Pulpit/original/cat.jpg was copied successfully to /home/gabrys/Pulpit/replica/cat.jpg.
+12.07.2025 23:25:28: File was added: flower cat.png
+12.07.2025 23:25:28: Copying file /home/gabrys/Pulpit/original/flower cat.png to /home/gabrys/Pulpit/replica/flower cat.png...
+12.07.2025 23:25:28: File: /home/gabrys/Pulpit/original/flower cat.png was copied successfully to /home/gabrys/Pulpit/replica/flower cat.png.
+12.07.2025 23:25:28: File was modified: .
+12.07.2025 23:25:28: Error updating file .: Access to the path '/home/gabrys/Pulpit/original' is denied.
+12.07.2025 23:43:41: Directory was added: fire-folder2
+12.07.2025 23:43:41: Directory: /home/gabrys/Pulpit/replica/fire-folder2 was copied successfully.
+12.07.2025 23:43:41: File was added: fire-folder2/extreme cat.jpg
+12.07.2025 23:43:41: Copying file /home/gabrys/Pulpit/original/fire-folder2/extreme cat.jpg to /home/gabrys/Pulpit/replica/fire-folder2/extreme cat.jpg...
+12.07.2025 23:43:41: File: /home/gabrys/Pulpit/original/fire-folder2/extreme cat.jpg was copied successfully to /home/gabrys/Pulpit/replica/fire-folder2/extreme cat.jpg.
+12.07.2025 23:43:41: Directory was added: fire-folder2/good job!
+12.07.2025 23:43:41: Directory: /home/gabrys/Pulpit/replica/fire-folder2/good job! was copied successfully.
+12.07.2025 23:43:41: File was added: fire-folder2/good job!/hello.txt
+12.07.2025 23:43:41: Copying file /home/gabrys/Pulpit/original/fire-folder2/good job!/hello.txt to /home/gabrys/Pulpit/replica/fire-folder2/good job!/hello.txt...
+12.07.2025 23:43:41: File: /home/gabrys/Pulpit/original/fire-folder2/good job!/hello.txt was copied successfully to /home/gabrys/Pulpit/replica/fire-folder2/good job!/hello.txt.
+12.07.2025 23:43:41: Directory was added: fire-folder2/good job!/i am empty
+12.07.2025 23:43:41: Directory: /home/gabrys/Pulpit/replica/fire-folder2/good job!/i am empty was copied successfully.
+12.07.2025 23:43:41: File was deleted: fire-folder/good job!/hello.txt
+12.07.2025 23:43:41: File: fire-folder/good job!/hello.txt was deleted successfully.
+12.07.2025 23:43:41: File was deleted: fire-folder/good job!/i am empty
+12.07.2025 23:43:41: Directory: fire-folder/good job!/i am empty was deleted successfully.
+12.07.2025 23:43:41: File was deleted: fire-folder/extreme cat.jpg
+12.07.2025 23:43:41: File: fire-folder/extreme cat.jpg was deleted successfully.
+12.07.2025 23:43:41: File was deleted: fire-folder/good job!
+12.07.2025 23:43:41: Directory: fire-folder/good job! was deleted successfully.
+12.07.2025 23:43:41: File was deleted: fire-folder
+12.07.2025 23:43:41: Directory: fire-folder was deleted successfully.
+12.07.2025 23:53:32: File was renamed/moved: fire-folder to /home/gabrys/Pulpit/replica/fire-folder
+12.07.2025 23:57:23: File was renamed/moved: fire-folder2 to /home/gabrys/Pulpit/replica/fire-folder2
+12.07.2025 23:58:15: File was renamed/moved: fire-foldea to /home/gabrys/Pulpit/replica/fire-foldea
+13.07.2025 03:15:18: Error while renaming or moving a file: System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.Dictionary`2.Enumerator.MoveNext()
+   at folder_replicator.src.FolderReplicator.FindRenamedAndMovedFiles(Dictionary`2 sourceDict, Dictionary`2 destinationDict) in /home/gabrys/Pulpit/folder-replicator/src/FolderReplicator.cs:line 278
+13.07.2025 03:15:18: Error while renaming or moving a file: System.IO.IOException: Source and destination path must be different.
+   at System.IO.FileSystem.MoveDirectory(String sourceFullPath, String destFullPath)
+   at folder_replicator.src.FileObject.Move(String newPath) in /home/gabrys/Pulpit/folder-replicator/src/FileObject.cs:line 100
+   at folder_replicator.src.FolderReplicator.FindRenamedAndMovedFiles(Dictionary`2 sourceDict, Dictionary`2 destinationDict) in /home/gabrys/Pulpit/folder-replicator/src/FolderReplicator.cs:line 277
+13.07.2025 03:15:18: Error while renaming or moving a file: System.IO.FileNotFoundException: Could not find file '/home/gabrys/Pulpit/replica/fire-foldea/good job!/hello.txt'.
+File name: '/home/gabrys/Pulpit/replica/fire-foldea/good job!/hello.txt'
+   at System.IO.File.Move(String sourceFileName, String destFileName, Boolean overwrite)
+   at folder_replicator.src.FileObject.Move(String newPath) in /home/gabrys/Pulpit/folder-replicator/src/FileObject.cs:line 106
+   at folder_replicator.src.FolderReplicator.FindRenamedAndMovedFiles(Dictionary`2 sourceDict, Dictionary`2 destinationDict) in /home/gabrys/Pulpit/folder-replicator/src/FolderReplicator.cs:line 277
+13.07.2025 03:15:18: Directory was added: fire-folde
+13.07.2025 03:15:18: Directory: /home/gabrys/Pulpit/replica/fire-folde was copied successfully.
+13.07.2025 03:15:18: File was added: fire-folde/extreme cat.jpg
+13.07.2025 03:15:18: Copying file /home/gabrys/Pulpit/original/fire-folde/extreme cat.jpg to /home/gabrys/Pulpit/replica/fire-folde/extreme cat.jpg...
+13.07.2025 03:15:18: File: /home/gabrys/Pulpit/original/fire-folde/extreme cat.jpg was copied successfully to /home/gabrys/Pulpit/replica/fire-folde/extreme cat.jpg.
+13.07.2025 03:15:18: Directory was added: fire-folde/good job!
+13.07.2025 03:15:18: Directory: /home/gabrys/Pulpit/replica/fire-folde/good job! was copied successfully.
+13.07.2025 03:15:18: File was added: fire-folde/good job!/hello.txt
+13.07.2025 03:15:18: Copying file /home/gabrys/Pulpit/original/fire-folde/good job!/hello.txt to /home/gabrys/Pulpit/replica/fire-folde/good job!/hello.txt...
+13.07.2025 03:15:18: File: /home/gabrys/Pulpit/original/fire-folde/good job!/hello.txt was copied successfully to /home/gabrys/Pulpit/replica/fire-folde/good job!/hello.txt.
+13.07.2025 03:15:18: Directory was added: fire-folde/good job!/i am empty
+13.07.2025 03:15:18: Directory: /home/gabrys/Pulpit/replica/fire-folde/good job!/i am empty was copied successfully.
+13.07.2025 03:15:18: File was deleted: fire-foldea/good job!/hello.txt
+13.07.2025 03:15:18: Error deleting file fire-foldea/good job!/hello.txt: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-foldea/good job!/hello.txt'.
+13.07.2025 03:15:18: File was deleted: fire-foldea/good job!/i am empty
+13.07.2025 03:15:18: Error deleting file fire-foldea/good job!/i am empty: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-foldea/good job!/i am empty'.
+13.07.2025 03:15:18: File was deleted: fire-foldea/extreme cat.jpg
+13.07.2025 03:15:18: Error deleting file fire-foldea/extreme cat.jpg: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-foldea/extreme cat.jpg'.
+13.07.2025 03:15:18: File was deleted: fire-foldea/good job!
+13.07.2025 03:15:18: Error deleting file fire-foldea/good job!: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-foldea/good job!'.
+13.07.2025 03:15:18: File was deleted: fire-foldea
+13.07.2025 03:15:18: Error deleting file fire-foldea: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-foldea'.
+13.07.2025 03:18:02: File was renamed/moved: fire-folders to /home/gabrys/Pulpit/replica/fire-folders
+13.07.2025 03:18:02: Error while renaming or moving a file: System.IO.FileNotFoundException: Could not find file '/home/gabrys/Pulpit/replica/fire-folde/good job!/hello.txt'.
+File name: '/home/gabrys/Pulpit/replica/fire-folde/good job!/hello.txt'
+   at System.IO.File.Move(String sourceFileName, String destFileName, Boolean overwrite)
+   at folder_replicator.src.FileObject.Move(String newPath) in /home/gabrys/Pulpit/folder-replicator/src/FileObject.cs:line 106
+   at folder_replicator.src.FolderReplicator.FindRenamedAndMovedFiles(Dictionary`2 sourceDict, Dictionary`2 destinationDict) in /home/gabrys/Pulpit/folder-replicator/src/FolderReplicator.cs:line 277
+13.07.2025 03:18:02: File was added: fire-folders/good job!/hello.txt
+13.07.2025 03:18:02: Copying file /home/gabrys/Pulpit/original/fire-folders/good job!/hello.txt to /home/gabrys/Pulpit/replica/fire-folders/good job!/hello.txt...
+13.07.2025 03:18:02: File: /home/gabrys/Pulpit/original/fire-folders/good job!/hello.txt was copied successfully to /home/gabrys/Pulpit/replica/fire-folders/good job!/hello.txt.
+13.07.2025 03:18:02: Directory was added: fire-folders/good job!/i am empty
+13.07.2025 03:18:02: Directory: /home/gabrys/Pulpit/replica/fire-folders/good job!/i am empty was copied successfully.
+13.07.2025 03:18:02: File was deleted: fire-folde/good job!/hello.txt
+13.07.2025 03:18:02: Error deleting file fire-folde/good job!/hello.txt: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-folde/good job!/hello.txt'.
+13.07.2025 03:18:02: File was deleted: fire-folde/good job!/i am empty
+13.07.2025 03:18:02: Error deleting file fire-folde/good job!/i am empty: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-folde/good job!/i am empty'.
+13.07.2025 03:20:23: Directory was renamed/moved: fire-folders to fire-foldersasdas
+13.07.2025 03:20:23: Directory was renamed/moved: fire-folders/good job! to fire-foldersasdas/good job!
+13.07.2025 03:20:23: File was renamed/moved: fire-foldersasdas/good job!/hello.txt to fire-foldersasdas/good job!/hello.txt
+13.07.2025 03:20:23: File was added: fire-foldersasdas/extreme cat.jpg
+13.07.2025 03:20:23: Copying file /home/gabrys/Pulpit/original/fire-foldersasdas/extreme cat.jpg to /home/gabrys/Pulpit/replica/fire-foldersasdas/extreme cat.jpg...
+13.07.2025 03:20:23: File: /home/gabrys/Pulpit/original/fire-foldersasdas/extreme cat.jpg was copied successfully to /home/gabrys/Pulpit/replica/fire-foldersasdas/extreme cat.jpg.
+13.07.2025 03:20:23: Directory was added: fire-foldersasdas/good job!/i am empty
+13.07.2025 03:20:23: Directory: /home/gabrys/Pulpit/replica/fire-foldersasdas/good job!/i am empty was copied successfully.
+13.07.2025 03:20:23: File was deleted: fire-folders/good job!/hello.txt
+13.07.2025 03:20:23: File: fire-folders/good job!/hello.txt was deleted successfully.
+13.07.2025 03:20:23: File was deleted: fire-folders/good job!/i am empty
+13.07.2025 03:20:23: Directory: fire-folders/good job!/i am empty was deleted successfully.
+13.07.2025 03:20:23: File was deleted: fire-folders/extreme cat.jpg
+13.07.2025 03:20:23: File: fire-folders/extreme cat.jpg was deleted successfully.
+13.07.2025 03:20:23: File was modified: fire-foldersasdas/good job!
+13.07.2025 03:20:23: Error updating file fire-foldersasdas/good job!: Access to the path '/home/gabrys/Pulpit/original/fire-foldersasdas/good job!' is denied.
+13.07.2025 03:20:23: File was modified: fire-foldersasdas
+13.07.2025 03:20:23: Error updating file fire-foldersasdas: Access to the path '/home/gabrys/Pulpit/original/fire-foldersasdas' is denied.
+13.07.2025 03:23:51: File was deleted: fire-folders/good job!
+13.07.2025 03:23:51: Directory: fire-folders/good job! was deleted successfully.
+13.07.2025 03:23:51: File was deleted: fire-folders
+13.07.2025 03:23:51: Directory: fire-folders was deleted successfully.
+13.07.2025 03:24:15: Directory was renamed/moved: fire-foldersasdas to fire-folders!
+13.07.2025 03:24:15: Directory was renamed/moved: fire-foldersasdas/good job! to fire-folders!/good job!
+13.07.2025 03:24:15: Directory was renamed/moved: fire-foldersasdas/good job!/i am empty to fire-folders!/good job!/i am empty
+13.07.2025 03:24:15: File was renamed/moved: fire-foldersasdas/good job!/hello.txt to fire-folders!/good job!/hello.txt
+13.07.2025 03:24:15: File was added: fire-folders!/extreme cat.jpg
+13.07.2025 03:24:15: Copying file /home/gabrys/Pulpit/original/fire-folders!/extreme cat.jpg to /home/gabrys/Pulpit/replica/fire-folders!/extreme cat.jpg...
+13.07.2025 03:24:15: File: /home/gabrys/Pulpit/original/fire-folders!/extreme cat.jpg was copied successfully to /home/gabrys/Pulpit/replica/fire-folders!/extreme cat.jpg.
+13.07.2025 03:24:15: File was deleted: fire-foldersasdas/extreme cat.jpg
+13.07.2025 03:24:15: File: fire-foldersasdas/extreme cat.jpg was deleted successfully.
+13.07.2025 03:27:32: Directory was renamed/moved: fire-folders! yippe to fire-folders!
+13.07.2025 03:27:32: Directory was renamed/moved: fire-folders! yippe/good job! to fire-folders!/good job!
+13.07.2025 03:27:32: File was renamed/moved: fire-folders! yippe/good job!/hello.txt to fire-folders!/good job!/hello.txt
+13.07.2025 03:27:32: File was added: fire-folders!/extreme cat.jpg
+13.07.2025 03:27:32: Copying file /home/gabrys/Pulpit/original/fire-folders!/extreme cat.jpg to /home/gabrys/Pulpit/replica/fire-folders!/extreme cat.jpg...
+13.07.2025 03:27:32: File: /home/gabrys/Pulpit/original/fire-folders!/extreme cat.jpg was copied successfully to /home/gabrys/Pulpit/replica/fire-folders!/extreme cat.jpg.
+13.07.2025 03:27:32: Directory was added: fire-folders!/good job!/i am empty
+13.07.2025 03:27:32: Directory: /home/gabrys/Pulpit/replica/fire-folders!/good job!/i am empty was copied successfully.
+13.07.2025 03:27:32: File was deleted: fire-folders! yippe/good job!/i am empty
+13.07.2025 03:27:32: Directory: fire-folders! yippe/good job!/i am empty was deleted successfully.
+13.07.2025 03:27:32: File was deleted: fire-foldersasdas/good job!/i am empty
+13.07.2025 03:27:32: Directory: fire-foldersasdas/good job!/i am empty was deleted successfully.
+13.07.2025 03:27:32: File was deleted: fire-folders! yippe/extreme cat.jpg
+13.07.2025 03:27:32: File: fire-folders! yippe/extreme cat.jpg was deleted successfully.
+13.07.2025 03:27:32: File was deleted: fire-foldersasdas/good job!
+13.07.2025 03:27:32: Directory: fire-foldersasdas/good job! was deleted successfully.
+13.07.2025 03:27:32: File was deleted: fire-foldersasdas
+13.07.2025 03:27:32: Directory: fire-foldersasdas was deleted successfully.
+13.07.2025 03:28:39: File was deleted: fire-folders! yippe/good job!
+13.07.2025 03:28:39: Directory: fire-folders! yippe/good job! was deleted successfully.
+13.07.2025 03:28:39: File was deleted: fire-folders! yippe
+13.07.2025 03:28:39: Directory: fire-folders! yippe was deleted successfully.
+13.07.2025 03:28:56: Directory was renamed/moved: fire-folders! to fire-folders!a
+13.07.2025 03:28:56: Directory was renamed/moved: fire-folders!/good job! to fire-folders!a/good job!
+13.07.2025 03:28:56: Directory was renamed/moved: fire-folders!/good job!/i am empty to fire-folders!a/good job!/i am empty
+13.07.2025 03:28:56: File was added: fire-folders!a/extreme cat.jpg
+13.07.2025 03:28:56: Copying file /home/gabrys/Pulpit/original/fire-folders!a/extreme cat.jpg to /home/gabrys/Pulpit/replica/fire-folders!a/extreme cat.jpg...
+13.07.2025 03:28:56: File: /home/gabrys/Pulpit/original/fire-folders!a/extreme cat.jpg was copied successfully to /home/gabrys/Pulpit/replica/fire-folders!a/extreme cat.jpg.
+13.07.2025 03:28:56: File was added: fire-folders!a/good job!/hello.txt
+13.07.2025 03:28:56: Copying file /home/gabrys/Pulpit/original/fire-folders!a/good job!/hello.txt to /home/gabrys/Pulpit/replica/fire-folders!a/good job!/hello.txt...
+13.07.2025 03:28:56: File: /home/gabrys/Pulpit/original/fire-folders!a/good job!/hello.txt was copied successfully to /home/gabrys/Pulpit/replica/fire-folders!a/good job!/hello.txt.
+13.07.2025 03:28:56: File was deleted: fire-folders!/good job!/hello.txt
+13.07.2025 03:28:56: File: fire-folders!/good job!/hello.txt was deleted successfully.
+13.07.2025 03:28:56: File was deleted: fire-folders!/extreme cat.jpg
+13.07.2025 03:28:56: File: fire-folders!/extreme cat.jpg was deleted successfully.
+13.07.2025 03:30:47: File was deleted: fire-folders!/good job!/i am empty
+13.07.2025 03:30:47: Directory: fire-folders!/good job!/i am empty was deleted successfully.
+13.07.2025 03:30:47: File was deleted: fire-folders!/good job!
+13.07.2025 03:30:47: Directory: fire-folders!/good job! was deleted successfully.
+13.07.2025 03:30:47: File was deleted: fire-folders!
+13.07.2025 03:30:47: Directory: fire-folders! was deleted successfully.
+13.07.2025 03:31:01: Directory was renamed/moved: fire-folders!a to fire-folders!
+13.07.2025 03:31:01: Old directory 'fire-folders!a' was deleted successfully.
+13.07.2025 03:31:01: Directory was renamed/moved: fire-folders!a/good job! to fire-folders!/good job!
+13.07.2025 03:31:01: Error while renaming or moving a directory: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-folders!a/good job!'.
+13.07.2025 03:31:01: Directory was renamed/moved: fire-folders!a/good job!/i am empty to fire-folders!/good job!/i am empty
+13.07.2025 03:31:01: Error while renaming or moving a directory: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-folders!a/good job!/i am empty'.
+13.07.2025 03:31:01: File couldn't be moved, copied instead: fire-folders!/good job!/hello.txt
+13.07.2025 03:31:01: Error while renaming or moving a file: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-folders!a/good job!/hello.txt'.
+13.07.2025 03:31:01: File was added: fire-folders!/extreme cat.jpg
+13.07.2025 03:31:01: Copying file /home/gabrys/Pulpit/original/fire-folders!/extreme cat.jpg to /home/gabrys/Pulpit/replica/fire-folders!/extreme cat.jpg...
+13.07.2025 03:31:01: File: /home/gabrys/Pulpit/original/fire-folders!/extreme cat.jpg was copied successfully to /home/gabrys/Pulpit/replica/fire-folders!/extreme cat.jpg.
+13.07.2025 03:31:01: File was added: fire-folders!/good job!/hello.txt
+13.07.2025 03:31:01: Copying file /home/gabrys/Pulpit/original/fire-folders!/good job!/hello.txt to /home/gabrys/Pulpit/replica/fire-folders!/good job!/hello.txt...
+13.07.2025 03:31:01: File: /home/gabrys/Pulpit/original/fire-folders!/good job!/hello.txt was copied successfully to /home/gabrys/Pulpit/replica/fire-folders!/good job!/hello.txt.
+13.07.2025 03:31:01: File was deleted: fire-folders!a/good job!/hello.txt
+13.07.2025 03:31:01: Error deleting file fire-folders!a/good job!/hello.txt: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-folders!a/good job!/hello.txt'.
+13.07.2025 03:31:01: File was deleted: fire-folders!a/extreme cat.jpg
+13.07.2025 03:31:01: Error deleting file fire-folders!a/extreme cat.jpg: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-folders!a/extreme cat.jpg'.
+13.07.2025 03:33:42: Directory was renamed/moved: fire-folders! to fire-folders!1
+13.07.2025 03:33:42: Error while renaming or moving a directory: The given key 'fire-folders!/extreme cat.jpg' was not present in the dictionary.
+13.07.2025 03:33:42: Directory was renamed/moved: fire-folders!/good job! to fire-folders!1/good job!
+13.07.2025 03:33:42: Error while renaming or moving a directory: The given key 'fire-folders!/good job!/hello.txt' was not present in the dictionary.
+13.07.2025 03:33:42: Directory was renamed/moved: fire-folders!/good job!/i am empty to fire-folders!1/good job!/i am empty
+13.07.2025 03:33:42: File was renamed/moved: cat.jpg to fire-folders!1/extreme cat.jpg
+13.07.2025 03:33:42: File was added: cat.jpg
+13.07.2025 03:33:42: Copying file /home/gabrys/Pulpit/original/cat.jpg to /home/gabrys/Pulpit/replica/cat.jpg...
+13.07.2025 03:33:42: File: /home/gabrys/Pulpit/original/cat.jpg was copied successfully to /home/gabrys/Pulpit/replica/cat.jpg.
+13.07.2025 03:33:42: Directory was added: fire-folders!1
+13.07.2025 03:33:42: Directory: /home/gabrys/Pulpit/replica/fire-folders!1 was copied successfully.
+13.07.2025 03:33:42: Directory was added: fire-folders!1/good job!
+13.07.2025 03:33:42: Directory: /home/gabrys/Pulpit/replica/fire-folders!1/good job! was copied successfully.
+13.07.2025 03:33:42: File was added: fire-folders!1/good job!/hello.txt
+13.07.2025 03:33:42: Copying file /home/gabrys/Pulpit/original/fire-folders!1/good job!/hello.txt to /home/gabrys/Pulpit/replica/fire-folders!1/good job!/hello.txt...
+13.07.2025 03:33:42: File: /home/gabrys/Pulpit/original/fire-folders!1/good job!/hello.txt was copied successfully to /home/gabrys/Pulpit/replica/fire-folders!1/good job!/hello.txt.
+13.07.2025 03:33:42: File was deleted: fire-folders!/good job!
+13.07.2025 03:33:42: Directory: fire-folders!/good job! was deleted successfully.
+13.07.2025 03:33:42: File was deleted: fire-folders!
+13.07.2025 03:33:42: Directory: fire-folders! was deleted successfully.
+13.07.2025 03:34:44: Directory was renamed/moved: fire-folders!1 to fire-folders!
+13.07.2025 03:34:44: Item was remapped: fire-folders!1/extreme cat.jpg to fire-folders!/extreme cat.jpg
+13.07.2025 03:34:44: Item was remapped: fire-folders!1/good job!/hello.txt to fire-folders!/good job!/hello.txt
+13.07.2025 03:34:44: Item was remapped: fire-folders!1/good job!/i am empty to fire-folders!/good job!/i am empty
+13.07.2025 03:34:44: Item was remapped: fire-folders!1/good job! to fire-folders!/good job!
+13.07.2025 03:36:01: Directory was renamed/moved: fire-folders!1 to fire-folders
+13.07.2025 03:36:01: Directory was renamed/moved: fire-folders!1/good job! to fire-folders/good job!
+13.07.2025 03:36:01: File was renamed/moved: fire-folders/good job!/hello.txt to fire-folders/good job!/hello.txt
+13.07.2025 03:36:01: File was added: fire-folders/extreme cat.jpg
+13.07.2025 03:36:01: Copying file /home/gabrys/Pulpit/original/fire-folders/extreme cat.jpg to /home/gabrys/Pulpit/replica/fire-folders/extreme cat.jpg...
+13.07.2025 03:36:01: File: /home/gabrys/Pulpit/original/fire-folders/extreme cat.jpg was copied successfully to /home/gabrys/Pulpit/replica/fire-folders/extreme cat.jpg.
+13.07.2025 03:36:01: Directory was added: fire-folders/good job!/i am empty
+13.07.2025 03:36:01: Directory: /home/gabrys/Pulpit/replica/fire-folders/good job!/i am empty was copied successfully.
+13.07.2025 03:36:01: File was deleted: fire-folders!1/good job!/hello.txt
+13.07.2025 03:36:01: File: fire-folders!1/good job!/hello.txt was deleted successfully.
+13.07.2025 03:36:01: File was deleted: fire-folders!1/good job!/i am empty
+13.07.2025 03:36:01: Directory: fire-folders!1/good job!/i am empty was deleted successfully.
+13.07.2025 03:36:01: File was deleted: fire-folders!1/extreme cat.jpg
+13.07.2025 03:36:01: File: fire-folders!1/extreme cat.jpg was deleted successfully.
+13.07.2025 03:36:01: File was deleted: fire-folders!
+13.07.2025 03:36:01: Directory: fire-folders! was deleted successfully.
+13.07.2025 03:36:01: File was modified: fire-folders/good job!
+13.07.2025 03:36:01: Error updating file fire-folders/good job!: Access to the path '/home/gabrys/Pulpit/original/fire-folders/good job!' is denied.
+13.07.2025 03:36:01: File was modified: fire-folders
+13.07.2025 03:36:01: Error updating file fire-folders: Access to the path '/home/gabrys/Pulpit/original/fire-folders' is denied.
+13.07.2025 03:36:01: File was modified: .
+13.07.2025 03:36:01: Error updating file .: Access to the path '/home/gabrys/Pulpit/original' is denied.
+13.07.2025 03:37:46: File was renamed/moved: fire-foldersasd to /home/gabrys/Pulpit/replica/fire-foldersasd
+13.07.2025 03:37:46: Error while renaming or moving a file: System.IO.FileNotFoundException: Could not find file '/home/gabrys/Pulpit/replica/fire-folders/good job!/hello.txt'.
+File name: '/home/gabrys/Pulpit/replica/fire-folders/good job!/hello.txt'
+   at System.IO.File.Move(String sourceFileName, String destFileName, Boolean overwrite)
+   at folder_replicator.src.FileObject.Move(String newPath) in /home/gabrys/Pulpit/folder-replicator/src/FileObject.cs:line 106
+   at folder_replicator.src.FolderReplicator.FindRenamedAndMovedFiles(Dictionary`2 sourceDict, Dictionary`2 destinationDict) in /home/gabrys/Pulpit/folder-replicator/src/FolderReplicator.cs:line 277
+13.07.2025 03:37:46: File was added: fire-foldersasd/good job!/hello.txt
+13.07.2025 03:37:46: Copying file /home/gabrys/Pulpit/original/fire-foldersasd/good job!/hello.txt to /home/gabrys/Pulpit/replica/fire-foldersasd/good job!/hello.txt...
+13.07.2025 03:37:46: File: /home/gabrys/Pulpit/original/fire-foldersasd/good job!/hello.txt was copied successfully to /home/gabrys/Pulpit/replica/fire-foldersasd/good job!/hello.txt.
+13.07.2025 03:37:46: Directory was added: fire-foldersasd/good job!/i am empty
+13.07.2025 03:37:46: Directory: /home/gabrys/Pulpit/replica/fire-foldersasd/good job!/i am empty was copied successfully.
+13.07.2025 03:37:46: File was deleted: fire-folders/good job!/hello.txt
+13.07.2025 03:37:46: Error deleting file fire-folders/good job!/hello.txt: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-folders/good job!/hello.txt'.
+13.07.2025 03:37:46: File was deleted: fire-folders/good job!/i am empty
+13.07.2025 03:37:46: Error deleting file fire-folders/good job!/i am empty: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-folders/good job!/i am empty'.
+13.07.2025 03:37:46: File was deleted: fire-folders!1/good job!
+13.07.2025 03:37:46: Directory: fire-folders!1/good job! was deleted successfully.
+13.07.2025 03:37:46: File was deleted: fire-folders!1
+13.07.2025 03:37:46: Directory: fire-folders!1 was deleted successfully.
+13.07.2025 03:37:46: File was modified: .
+13.07.2025 03:37:46: Error updating file .: Access to the path '/home/gabrys/Pulpit/original' is denied.
+13.07.2025 03:43:20: File was renamed/moved: /home/gabrys/Pulpit/replica/fire-2 to /home/gabrys/Pulpit/replica/fire-2
+13.07.2025 03:43:20: Error while renaming or moving a file: Source and destination path must be different.
+13.07.2025 03:43:20: Error while renaming or moving a file: Could not find file '/home/gabrys/Pulpit/replica/fire-foldersasd/good job!/hello.txt'.
+13.07.2025 03:43:20: File was added: fire-2/extreme cat.jpg
+13.07.2025 03:43:20: Copying file /home/gabrys/Pulpit/original/fire-2/extreme cat.jpg to /home/gabrys/Pulpit/replica/fire-2/extreme cat.jpg...
+13.07.2025 03:43:20: File: /home/gabrys/Pulpit/original/fire-2/extreme cat.jpg was copied successfully to /home/gabrys/Pulpit/replica/fire-2/extreme cat.jpg.
+13.07.2025 03:43:20: Directory was added: fire-2/good job!
+13.07.2025 03:43:20: Directory: /home/gabrys/Pulpit/replica/fire-2/good job! was copied successfully.
+13.07.2025 03:43:20: File was added: fire-2/good job!/hello.txt
+13.07.2025 03:43:20: Copying file /home/gabrys/Pulpit/original/fire-2/good job!/hello.txt to /home/gabrys/Pulpit/replica/fire-2/good job!/hello.txt...
+13.07.2025 03:43:20: File: /home/gabrys/Pulpit/original/fire-2/good job!/hello.txt was copied successfully to /home/gabrys/Pulpit/replica/fire-2/good job!/hello.txt.
+13.07.2025 03:43:20: Directory was added: fire-2/good job!/i am empty
+13.07.2025 03:43:20: Directory: /home/gabrys/Pulpit/replica/fire-2/good job!/i am empty was copied successfully.
+13.07.2025 03:43:20: File was deleted: fire-foldersasd/good job!/hello.txt
+13.07.2025 03:43:20: Error deleting file fire-foldersasd/good job!/hello.txt: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-foldersasd/good job!/hello.txt'.
+13.07.2025 03:43:20: File was deleted: fire-foldersasd/good job!/i am empty
+13.07.2025 03:43:20: Error deleting file fire-foldersasd/good job!/i am empty: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-foldersasd/good job!/i am empty'.
+13.07.2025 03:43:20: File was deleted: fire-foldersasd/extreme cat.jpg
+13.07.2025 03:43:20: Error deleting file fire-foldersasd/extreme cat.jpg: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-foldersasd/extreme cat.jpg'.
+13.07.2025 03:43:20: File was deleted: fire-foldersasd/good job!
+13.07.2025 03:43:20: Error deleting file fire-foldersasd/good job!: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-foldersasd/good job!'.
+13.07.2025 03:43:20: File was deleted: fire-foldersasd
+13.07.2025 03:43:20: Error deleting file fire-foldersasd: Could not find a part of the path '/home/gabrys/Pulpit/replica/fire-foldersasd'.
+13.07.2025 03:45:07: File was renamed/moved: /home/gabrys/Pulpit/replica/fire-23 to /home/gabrys/Pulpit/replica/fire-23
+13.07.2025 03:45:07: Skipping move operation as source and destination paths are identical: /home/gabrys/Pulpit/replica/fire-23/good job!
+13.07.2025 03:45:07: Error while renaming or moving a file: Could not find file '/home/gabrys/Pulpit/replica/fire-2/good job!/hello.txt'.
+13.07.2025 03:45:07: File was added: fire-23/extreme cat.jpg
+13.07.2025 03:45:07: Copying file /home/gabrys/Pulpit/original/fire-23/extreme cat.jpg to /home/gabrys/Pulpit/replica/fire-23/extreme cat.jpg...
+13.07.2025 03:45:07: File: /home/gabrys/Pulpit/original/fire-23/extreme cat.jpg was copied successfully to /home/gabrys/Pulpit/replica/fire-23/extreme cat.jpg.
+13.07.2025 03:45:07: Directory was added: fire-23/good job!
+13.07.2025 03:45:07: Directory: /home/gabrys/Pulpit/replica/fire-23/good job! was copied successfully.
+13.07.2025 03:45:07: File was added: fire-23/good job!/hello.txt
+13.07.2025 03:45:07: Copying file /home/gabrys/Pulpit/original/fire-23/good job!/hello.txt to /home/gabrys/Pulpit/replica/fire-23/good job!/hello.txt...
+13.07.2025 03:45:07: File: /home/gabrys/Pulpit/original/fire-23/good job!/hello.txt was copied successfully to /home/gabrys/Pulpit/replica/fire-23/good job!/hello.txt.
+13.07.2025 03:45:07: Directory was added: fire-23/good job!/i am empty
+13.07.2025 03:45:07: Directory: /home/gabrys/Pulpit/replica/fire-23/good job!/i am empty was copied successfully.
+13.07.2025 03:45:07: File was deleted: fire-2/good job!/hello.txt
+13.07.2025 03:45:07: File not found: /home/gabrys/Pulpit/replica/fire-2/good job!/hello.txt
+13.07.2025 03:45:07: File was deleted: fire-2/good job!/i am empty
+13.07.2025 03:45:07: Directory not found: /home/gabrys/Pulpit/replica/fire-2/good job!/i am empty
+13.07.2025 03:45:07: File was deleted: fire-2/extreme cat.jpg
+13.07.2025 03:45:07: File not found: /home/gabrys/Pulpit/replica/fire-2/extreme cat.jpg
+13.07.2025 03:45:07: File was deleted: fire-2/good job!
+13.07.2025 03:45:07: Directory not found: /home/gabrys/Pulpit/replica/fire-2/good job!
+13.07.2025 03:45:07: File was deleted: fire-2
+13.07.2025 03:45:07: Directory not found: /home/gabrys/Pulpit/replica/fire-2
+13.07.2025 03:49:08: File was renamed/moved: fire-234 to fire-234
+13.07.2025 03:49:08: File was deleted: fire-23/good job!/hello.txt
+13.07.2025 03:49:08: File not found: /home/gabrys/Pulpit/replica/fire-23/good job!/hello.txt
+13.07.2025 03:49:08: File was deleted: fire-23/good job!/i am empty
+13.07.2025 03:49:08: Directory not found: /home/gabrys/Pulpit/replica/fire-23/good job!/i am empty
+13.07.2025 03:49:08: File was deleted: fire-23/extreme cat.jpg
+13.07.2025 03:49:08: File not found: /home/gabrys/Pulpit/replica/fire-23/extreme cat.jpg
+13.07.2025 03:49:08: File was deleted: fire-23/good job!
+13.07.2025 03:49:08: Directory not found: /home/gabrys/Pulpit/replica/fire-23/good job!
+13.07.2025 03:49:08: File was deleted: fire-23
+13.07.2025 03:49:08: Directory not found: /home/gabrys/Pulpit/replica/fire-23
+13.07.2025 03:50:00: File was renamed/moved: 2 to 2
+13.07.2025 03:50:00: File was deleted: fire-234/good job!/hello.txt
+13.07.2025 03:50:00: File not found: /home/gabrys/Pulpit/replica/fire-234/good job!/hello.txt
+13.07.2025 03:50:00: File was deleted: fire-234/good job!/i am empty
+13.07.2025 03:50:00: Directory not found: /home/gabrys/Pulpit/replica/fire-234/good job!/i am empty
+13.07.2025 03:50:00: File was deleted: fire-234/extreme cat.jpg
+13.07.2025 03:50:00: File not found: /home/gabrys/Pulpit/replica/fire-234/extreme cat.jpg
+13.07.2025 03:50:00: File was deleted: fire-234/good job!
+13.07.2025 03:50:00: Directory not found: /home/gabrys/Pulpit/replica/fire-234/good job!
+13.07.2025 03:50:00: File was deleted: fire-234
+13.07.2025 03:50:00: Directory not found: /home/gabrys/Pulpit/replica/fire-234
+13.07.2025 03:50:00: File was modified: .
+13.07.2025 03:50:00: Error updating file .: Access to the path '/home/gabrys/Pulpit/original' is denied.
+13.07.2025 03:50:12: File was renamed/moved: dasda to dasda
+13.07.2025 03:50:12: File was deleted: 2/good job!/hello.txt
+13.07.2025 03:50:12: File not found: /home/gabrys/Pulpit/replica/2/good job!/hello.txt
+13.07.2025 03:50:12: File was deleted: 2/good job!/i am empty
+13.07.2025 03:50:12: Directory not found: /home/gabrys/Pulpit/replica/2/good job!/i am empty
+13.07.2025 03:50:12: File was deleted: 2/extreme cat.jpg
+13.07.2025 03:50:12: File not found: /home/gabrys/Pulpit/replica/2/extreme cat.jpg
+13.07.2025 03:50:12: File was deleted: 2/good job!
+13.07.2025 03:50:12: Directory not found: /home/gabrys/Pulpit/replica/2/good job!
+13.07.2025 03:50:12: File was deleted: 2
+13.07.2025 03:50:12: Directory not found: /home/gabrys/Pulpit/replica/2
+13.07.2025 03:50:12: File was modified: .
+13.07.2025 03:50:12: Error updating file .: Access to the path '/home/gabrys/Pulpit/original' is denied.
+13.07.2025 03:54:12: File was renamed/moved: dasda to dasdaa
+13.07.2025 03:54:49: File was renamed/moved: asd to asd1
+13.07.2025 03:54:49: File was renamed/moved: popp.txt to Small Folder/popp.txt
+13.07.2025 03:54:49: File was modified: Small Folder
+13.07.2025 03:54:49: Error updating file Small Folder: Access to the path '/home/gabrys/Pulpit/original/Small Folder' is denied.
+13.07.2025 03:54:49: File was modified: .
+13.07.2025 03:54:49: Error updating file .: Access to the path '/home/gabrys/Pulpit/original' is denied.
+13.07.2025 04:00:13: Error while renaming or moving a file: Invalid argument
+13.07.2025 04:00:13: File was added: file2.txt
+13.07.2025 04:00:13: Copying file /home/gabrys/Pulpit/folder-replicator/test-original/file2.txt to /home/gabrys/Pulpit/folder-replicator/test-replica/file2.txt...
+13.07.2025 04:00:13: File: /home/gabrys/Pulpit/folder-replicator/test-original/file2.txt was copied successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/file2.txt.
+13.07.2025 04:00:13: File was added: new_file.txt
+13.07.2025 04:00:13: Copying file /home/gabrys/Pulpit/folder-replicator/test-original/new_file.txt to /home/gabrys/Pulpit/folder-replicator/test-replica/new_file.txt...
+13.07.2025 04:00:13: File: /home/gabrys/Pulpit/folder-replicator/test-original/new_file.txt was copied successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/new_file.txt.
+13.07.2025 04:00:13: File was added: renamed_file1.txt
+13.07.2025 04:00:13: Copying file /home/gabrys/Pulpit/folder-replicator/test-original/renamed_file1.txt to /home/gabrys/Pulpit/folder-replicator/test-replica/renamed_file1.txt...
+13.07.2025 04:00:13: File: /home/gabrys/Pulpit/folder-replicator/test-original/renamed_file1.txt was copied successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/renamed_file1.txt.
+13.07.2025 04:00:13: Directory was added: subfolder1
+13.07.2025 04:00:13: Directory: /home/gabrys/Pulpit/folder-replicator/test-replica/subfolder1 was copied successfully.
+13.07.2025 04:00:13: Directory was added: subfolder2
+13.07.2025 04:00:13: Directory: /home/gabrys/Pulpit/folder-replicator/test-replica/subfolder2 was copied successfully.
+13.07.2025 04:00:13: Directory was added: subfolder3
+13.07.2025 04:00:13: Directory: /home/gabrys/Pulpit/folder-replicator/test-replica/subfolder3 was copied successfully.
+13.07.2025 04:00:13: File was added: subfolder1/moved_file.txt
+13.07.2025 04:00:13: Copying file /home/gabrys/Pulpit/folder-replicator/test-original/subfolder1/moved_file.txt to /home/gabrys/Pulpit/folder-replicator/test-replica/subfolder1/moved_file.txt...
+13.07.2025 04:00:13: File: /home/gabrys/Pulpit/folder-replicator/test-original/subfolder1/moved_file.txt was copied successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/subfolder1/moved_file.txt.
+13.07.2025 04:00:13: Directory was added: subfolder1/nested
+13.07.2025 04:00:13: Directory: /home/gabrys/Pulpit/folder-replicator/test-replica/subfolder1/nested was copied successfully.
+13.07.2025 04:00:13: File was added: subfolder1/nested_file.txt
+13.07.2025 04:00:13: Copying file /home/gabrys/Pulpit/folder-replicator/test-original/subfolder1/nested_file.txt to /home/gabrys/Pulpit/folder-replicator/test-replica/subfolder1/nested_file.txt...
+13.07.2025 04:00:13: File: /home/gabrys/Pulpit/folder-replicator/test-original/subfolder1/nested_file.txt was copied successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/subfolder1/nested_file.txt.
+13.07.2025 04:00:13: File was added: subfolder3/new_folder_file.txt
+13.07.2025 04:00:13: Copying file /home/gabrys/Pulpit/folder-replicator/test-original/subfolder3/new_folder_file.txt to /home/gabrys/Pulpit/folder-replicator/test-replica/subfolder3/new_folder_file.txt...
+13.07.2025 04:00:13: File: /home/gabrys/Pulpit/folder-replicator/test-original/subfolder3/new_folder_file.txt was copied successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/subfolder3/new_folder_file.txt.
+13.07.2025 04:00:13: File was added: subfolder1/nested/deep_file.txt
+13.07.2025 04:00:13: Copying file /home/gabrys/Pulpit/folder-replicator/test-original/subfolder1/nested/deep_file.txt to /home/gabrys/Pulpit/folder-replicator/test-replica/subfolder1/nested/deep_file.txt...
+13.07.2025 04:00:13: File: /home/gabrys/Pulpit/folder-replicator/test-original/subfolder1/nested/deep_file.txt was copied successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/subfolder1/nested/deep_file.txt.
+13.07.2025 13:34:25: File was renamed/moved: renamed_file1.txt to renamed_to_different_name.txt
+13.07.2025 13:34:25: File was added: brand_new_file.txt
+13.07.2025 13:34:25: Copying file /home/gabrys/Pulpit/folder-replicator/test-original/brand_new_file.txt to /home/gabrys/Pulpit/folder-replicator/test-replica/brand_new_file.txt...
+13.07.2025 13:34:25: File: /home/gabrys/Pulpit/folder-replicator/test-original/brand_new_file.txt was copied successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/brand_new_file.txt.
+13.07.2025 13:34:25: File was deleted: subfolder2
+13.07.2025 13:34:25: Directory: subfolder2 was deleted successfully.
+13.07.2025 13:34:25: File was modified: file2.txt
+13.07.2025 13:34:25: File: /home/gabrys/Pulpit/folder-replicator/test-original/file2.txt was updated successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/file2.txt.
+13.07.2025 13:35:14: File was renamed/moved: subfolder1 to renamed_subfolder1
+13.07.2025 13:36:34: File was renamed/moved: new_file.txt to completely_renamed_file.txt
+13.07.2025 13:36:34: File was renamed/moved: renamed_subfolder1 to moved_to_root_folder
+13.07.2025 13:36:34: Error while renaming or moving a file: Could not find a part of the path '/home/gabrys/Pulpit/folder-replicator/test-replica/subfolder3'.
+13.07.2025 13:36:34: Error while renaming or moving a file: Could not find a part of the path '/home/gabrys/Pulpit/folder-replicator/test-replica/deep/nested/moved_subfolder3/new_folder_file.txt'.
+13.07.2025 13:36:34: Error while renaming or moving a file: Could not find a part of the path '/home/gabrys/Pulpit/folder-replicator/test-replica/deep/nested/structure/moved_file2.txt'.
+13.07.2025 13:36:34: File was added: another_brand_new_file.txt
+13.07.2025 13:36:34: Copying file /home/gabrys/Pulpit/folder-replicator/test-original/another_brand_new_file.txt to /home/gabrys/Pulpit/folder-replicator/test-replica/another_brand_new_file.txt...
+13.07.2025 13:36:34: File: /home/gabrys/Pulpit/folder-replicator/test-original/another_brand_new_file.txt was copied successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/another_brand_new_file.txt.
+13.07.2025 13:36:34: Directory was added: deep
+13.07.2025 13:36:34: Directory: /home/gabrys/Pulpit/folder-replicator/test-replica/deep was copied successfully.
+13.07.2025 13:36:34: Directory was added: deep/nested
+13.07.2025 13:36:34: Directory: /home/gabrys/Pulpit/folder-replicator/test-replica/deep/nested was copied successfully.
+13.07.2025 13:36:34: Directory was added: deep/nested/moved_subfolder3
+13.07.2025 13:36:34: Directory: /home/gabrys/Pulpit/folder-replicator/test-replica/deep/nested/moved_subfolder3 was copied successfully.
+13.07.2025 13:36:34: Directory was added: deep/nested/structure
+13.07.2025 13:36:34: Directory: /home/gabrys/Pulpit/folder-replicator/test-replica/deep/nested/structure was copied successfully.
+13.07.2025 13:36:34: File was added: deep/nested/moved_subfolder3/new_folder_file.txt
+13.07.2025 13:36:34: Copying file /home/gabrys/Pulpit/folder-replicator/test-original/deep/nested/moved_subfolder3/new_folder_file.txt to /home/gabrys/Pulpit/folder-replicator/test-replica/deep/nested/moved_subfolder3/new_folder_file.txt...
+13.07.2025 13:36:34: File: /home/gabrys/Pulpit/folder-replicator/test-original/deep/nested/moved_subfolder3/new_folder_file.txt was copied successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/deep/nested/moved_subfolder3/new_folder_file.txt.
+13.07.2025 13:36:34: File was added: deep/nested/structure/deep_file.txt
+13.07.2025 13:36:34: Copying file /home/gabrys/Pulpit/folder-replicator/test-original/deep/nested/structure/deep_file.txt to /home/gabrys/Pulpit/folder-replicator/test-replica/deep/nested/structure/deep_file.txt...
+13.07.2025 13:36:34: File: /home/gabrys/Pulpit/folder-replicator/test-original/deep/nested/structure/deep_file.txt was copied successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/deep/nested/structure/deep_file.txt.
+13.07.2025 13:36:34: File was added: deep/nested/structure/moved_file2.txt
+13.07.2025 13:36:34: Copying file /home/gabrys/Pulpit/folder-replicator/test-original/deep/nested/structure/moved_file2.txt to /home/gabrys/Pulpit/folder-replicator/test-replica/deep/nested/structure/moved_file2.txt...
+13.07.2025 13:36:34: File: /home/gabrys/Pulpit/folder-replicator/test-original/deep/nested/structure/moved_file2.txt was copied successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/deep/nested/structure/moved_file2.txt.
+13.07.2025 13:36:34: File was deleted: subfolder3/new_folder_file.txt
+13.07.2025 13:36:34: File: subfolder3/new_folder_file.txt was deleted successfully.
+13.07.2025 13:36:34: File was deleted: brand_new_file.txt
+13.07.2025 13:36:34: File: brand_new_file.txt was deleted successfully.
+13.07.2025 13:36:34: File was deleted: file2.txt
+13.07.2025 13:36:34: File: file2.txt was deleted successfully.
+13.07.2025 13:36:34: File was deleted: subfolder3
+13.07.2025 13:36:34: Directory: subfolder3 was deleted successfully.
+13.07.2025 13:36:34: File was modified: renamed_to_different_name.txt
+13.07.2025 13:36:34: File: /home/gabrys/Pulpit/folder-replicator/test-original/renamed_to_different_name.txt was updated successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/renamed_to_different_name.txt.
+13.07.2025 13:38:27: Created parent directory: /home/gabrys/Pulpit/folder-replicator/test-replica/very/deep/nested
+13.07.2025 13:38:27: File was renamed/moved: moved_to_root_folder to very/deep/nested/moved_folder
+13.07.2025 13:38:27: Directory was added: very
+13.07.2025 13:38:27: Directory: /home/gabrys/Pulpit/folder-replicator/test-replica/very was copied successfully.
+13.07.2025 13:38:27: Directory was added: very/deep
+13.07.2025 13:38:27: Directory: /home/gabrys/Pulpit/folder-replicator/test-replica/very/deep was copied successfully.
+13.07.2025 13:38:27: Directory was added: very/deep/nested
+13.07.2025 13:38:27: Directory: /home/gabrys/Pulpit/folder-replicator/test-replica/very/deep/nested was copied successfully.
+13.07.2025 13:38:27: Directory was added: very/deep/nested/structure
+13.07.2025 13:38:27: Directory: /home/gabrys/Pulpit/folder-replicator/test-replica/very/deep/nested/structure was copied successfully.
+13.07.2025 13:38:27: File was added: very/deep/nested/structure/deep_file.txt
+13.07.2025 13:38:27: Copying file /home/gabrys/Pulpit/folder-replicator/test-original/very/deep/nested/structure/deep_file.txt to /home/gabrys/Pulpit/folder-replicator/test-replica/very/deep/nested/structure/deep_file.txt...
+13.07.2025 13:38:27: File: /home/gabrys/Pulpit/folder-replicator/test-original/very/deep/nested/structure/deep_file.txt was copied successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/very/deep/nested/structure/deep_file.txt.
+13.07.2025 13:38:27: File was added: very/deep/nested/structure/new_deep_file.txt
+13.07.2025 13:38:27: Copying file /home/gabrys/Pulpit/folder-replicator/test-original/very/deep/nested/structure/new_deep_file.txt to /home/gabrys/Pulpit/folder-replicator/test-replica/very/deep/nested/structure/new_deep_file.txt...
+13.07.2025 13:38:27: File: /home/gabrys/Pulpit/folder-replicator/test-original/very/deep/nested/structure/new_deep_file.txt was copied successfully to /home/gabrys/Pulpit/folder-replicator/test-replica/very/deep/nested/structure/new_deep_file.txt.
+13.07.2025 13:41:23: File was renamed/moved: Small Folder to Small Folder11
+13.07.2025 13:41:23: File was renamed/moved: asd1 to asd1123
+13.07.2025 13:41:23: Created parent directory: /home/gabrys/Pulpit/replica/dasdaa123
+13.07.2025 13:41:23: File was renamed/moved: bat.png to dasdaa123/batextra.png
+13.07.2025 13:41:23: File was renamed/moved: dasdaa/good job! to dasdaa123/good job!
+13.07.2025 13:41:23: File was added: c2at.jpg
+13.07.2025 13:41:23: Copying file /home/gabrys/Pulpit/original/c2at.jpg to /home/gabrys/Pulpit/replica/c2at.jpg...
+13.07.2025 13:41:23: File: /home/gabrys/Pulpit/original/c2at.jpg was copied successfully to /home/gabrys/Pulpit/replica/c2at.jpg.
+13.07.2025 13:41:23: Directory was added: d
+13.07.2025 13:41:23: Directory: /home/gabrys/Pulpit/replica/d was copied successfully.
+13.07.2025 13:41:23: Directory was added: dasdaa123
+13.07.2025 13:41:23: Directory: /home/gabrys/Pulpit/replica/dasdaa123 was copied successfully.
+13.07.2025 13:41:23: File was added: d/s.txt
+13.07.2025 13:41:23: Copying file /home/gabrys/Pulpit/original/d/s.txt to /home/gabrys/Pulpit/replica/d/s.txt...
+13.07.2025 13:41:23: File: /home/gabrys/Pulpit/original/d/s.txt was copied successfully to /home/gabrys/Pulpit/replica/d/s.txt.
+13.07.2025 13:41:23: Directory was added: dasdaa123/Nowy katalog5
+13.07.2025 13:41:23: Directory: /home/gabrys/Pulpit/replica/dasdaa123/Nowy katalog5 was copied successfully.
+13.07.2025 13:41:23: File was added: dasdaa123/extreme cat.jpg
+13.07.2025 13:41:23: Copying file /home/gabrys/Pulpit/original/dasdaa123/extreme cat.jpg to /home/gabrys/Pulpit/replica/dasdaa123/extreme cat.jpg...
+13.07.2025 13:41:23: File: /home/gabrys/Pulpit/original/dasdaa123/extreme cat.jpg was copied successfully to /home/gabrys/Pulpit/replica/dasdaa123/extreme cat.jpg.
+13.07.2025 13:41:23: File was deleted: dasdaa/extreme cat.jpg
+13.07.2025 13:41:23: File: dasdaa/extreme cat.jpg was deleted successfully.
+13.07.2025 13:41:23: File was deleted: cat.jpg
+13.07.2025 13:41:23: File: cat.jpg was deleted successfully.
+13.07.2025 13:41:23: File was deleted: dasdaa
+13.07.2025 13:41:23: Directory: dasdaa was deleted successfully.

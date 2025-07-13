@@ -24,13 +24,42 @@ namespace folder_replicator.src
         public DateTime Created { get; }
 
         public bool IsDirectory { get; }
-        public string Path { get; }
+
+        private FileObject? ParentFile;
+
+        private string _path;
+
+        public string Path
+        {
+            get
+            {
+                if (ParentFile == null)
+                    return _path;
+                return System.IO.Path.Combine(ParentFile.Path, Name);
+            }
+            private set
+            {
+                _path = value;
+            }
+        }
         public List<FileObject> Files { get; }
 
-        public string ContentsHash { get; }
+
+        private string _contentsHash;
+    
+        public string ContentsHash {
+            get {
+                
+                return _contentsHash;
+            }
+            set
+            {
+                _contentsHash = value;
+            }
+        }
 
 
-        public FileObject(string path, string metadataPath)
+        public FileObject(string path, FileObject? parent)
         {
             Path = path;
             IsDirectory = Directory.Exists(path);
@@ -40,36 +69,51 @@ namespace folder_replicator.src
                 Files = new List<FileObject>();
                 foreach (var file in Directory.GetFiles(path))
                 {
-                    Files.Add(new FileObject(file, metadataPath));
+                    Files.Add(new FileObject(file, parent));
                 }
                 foreach (var file in Directory.GetDirectories(path))
                 {
-                    Files.Add(new FileObject(file, metadataPath));
+                    Files.Add(new FileObject(file, parent));
                 }
                 Files.Sort();
-                ContentsHash = Helpers.ComputeSHA256(string.Join("", Files.Select(f => f.ContentsHash)));;
+                ContentsHash = Helpers.ComputeSHA256(string.Join("", Files.Select(f => f.ContentsHash))); ;
             }
             else
             {
-                Files = null;
                 Size = new System.IO.FileInfo(path).Length;
                 LastModified = System.IO.File.GetLastWriteTime(path);
                 Created = System.IO.File.GetCreationTime(path);
                 ContentsHash = Helpers.ComputeSHA256(System.IO.File.ReadAllBytes(path));
             }
+            ParentFile = parent;
         }
         
-        public List<FileObject> Flatten(FileObject root)
+
+        public List<FileObject> Flatten()
         {
             var list = new List<FileObject>();
-            if (root.Files != null)
+            if (this.Files != null)
             {
-                foreach (var f in root.Files)
-                    list.AddRange(Flatten(f));
+                foreach (var f in this.Files)
+                    list.AddRange(f.Flatten());
             }
-            list.Add(root);
+            list.Add(this);
             return list;
         }
         
+        public void Move(string newPath)
+        {
+            if (IsDirectory)
+            {
+                System.IO.Directory.Move(Path, newPath);
+                Path = newPath;
+            }
+            else
+            {
+
+                System.IO.File.Move(Path, newPath);
+                Path = newPath;
+            }
+        }
     }
 }

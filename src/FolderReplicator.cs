@@ -163,14 +163,14 @@ namespace folder_replicator.src
                         {
                             Logger.Instance.Log($"File was renamed/moved: {oldPath} to {relativePath}");
                             destinationTree.MoveFile(oldPath, relativePath);
-                            Logger.Instance.Log($"File was moved successfully: {oldPath} to {relativePath}");
+                            Logger.Instance.Log($"File was moved successfully in destination: {oldPath} to {relativePath}");
                             movedCount++;
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Logger.Instance.Log($"Error while renaming or moving a file: {ex.Message}");
+                    Logger.Instance.Log($"Error while renaming or moving a file at destination: {ex.Message}");
                     errorCount++;
                 }
             }
@@ -191,17 +191,17 @@ namespace folder_replicator.src
 
             foreach (var relativePath in filesToAdd)
             {
+                var fileType = sourceFiles[relativePath].IsDirectory ? "Directory" : "File";
                 try
                 {
-                    sourceTree.CopyFile(relativePath, options.Destination);
-                    addedCount++;
-                    
-                    var fileType = sourceFiles[relativePath].IsDirectory ? "Directory" : "File";
                     Logger.Instance.Log($"{fileType} was added: {relativePath}");
+                    sourceTree.CopyFile(relativePath, options.Destination);
+                    Logger.Instance.Log($"{fileType} was copied successfully: {relativePath}");
+                    addedCount++;
                 }
                 catch (Exception ex)
                 {
-                    Logger.Instance.Log($"Error copying file {relativePath}: {ex.Message}");
+                    Logger.Instance.Log($"Error copying {fileType} at {relativePath}: {ex.Message}");
                     errorCount++;
                 }
             }
@@ -222,17 +222,17 @@ namespace folder_replicator.src
 
             foreach (var relativePath in filesToDelete)
             {
+                var fileType = destinationFiles.ContainsKey(relativePath) && destinationFiles[relativePath].IsDirectory ? "Directory" : "File";
                 try
                 {
-                    destinationTree.DeleteFile(relativePath);
-                    deletedCount++;
-                    
-                    var fileType = destinationFiles.ContainsKey(relativePath) && destinationFiles[relativePath].IsDirectory ? "Directory" : "File";
                     Logger.Instance.Log($"{fileType} was deleted: {relativePath}");
+                    destinationTree.DeleteFile(relativePath);
+                    Logger.Instance.Log($"{fileType} has been deleted successfully from destination: {relativePath}");
+                    deletedCount++;
                 }
                 catch (Exception ex)
                 {
-                    Logger.Instance.Log($"Error deleting file {relativePath}: {ex.Message}");
+                    Logger.Instance.Log($"Error deleting {fileType} at {relativePath}: {ex.Message}");
                     errorCount++;
                 }
             }
@@ -259,14 +259,15 @@ namespace folder_replicator.src
 
                     if (!sourceFile.IsDirectory && sourceFile.Hash != destinationFile.Hash)
                     {
-                        sourceTree.CopyFile(relativePath, options.Destination);
-                        updatedCount++;
                         Logger.Instance.Log($"File was modified: {relativePath}");
+                        sourceTree.CopyFile(relativePath, options.Destination);
+                        Logger.Instance.Log($"File was modified successfully in destination: {relativePath}");
+                        updatedCount++;
                     }
                 }
                 catch (Exception ex)
                 {
-                    Logger.Instance.Log($"Error updating file {relativePath}: {ex.Message}");
+                    Logger.Instance.Log($"Error updating file in destination {relativePath}: {ex.Message}");
                     errorCount++;
                 }
             }

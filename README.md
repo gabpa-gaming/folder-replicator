@@ -6,7 +6,7 @@ The Folder Replicator is a C# application designed to replicate folders from a s
 ## Installation
 1. Clone the repository:
    ```
-   git clone https://github.com/gabpagaming/folder-replicator.git
+   git clone https://github.com/gabpa-gaming/folder-replicator.git
    ```
 2. Navigate to the project directory:
    ```

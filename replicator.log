@@ -637,3 +637,57 @@ File name: '/home/gabrys/Pulpit/replica/fire-folders/good job!/hello.txt'
 13.07.2025 13:41:23: File: cat.jpg was deleted successfully.
 13.07.2025 13:41:23: File was deleted: dasdaa
 13.07.2025 13:41:23: Directory: dasdaa was deleted successfully.
+13.07.2025 14:21:55: File was added: file1.txt
+13.07.2025 14:21:55: File was added: file2.txt
+13.07.2025 14:21:55: Directory was added: subfolder
+13.07.2025 14:21:55: File was added: subfolder/nested_file.txt
+13.07.2025 14:21:55: Directory was added: subfolder/deep
+13.07.2025 14:21:55: File was added: subfolder/deep/deeply_nested.txt
+13.07.2025 14:21:55: Error deleting file .gitkeep: The given key '.gitkeep' was not present in the dictionary.
+13.07.2025 14:29:45: File was renamed/moved: empty-gitkeep to empty-file.txt
+13.07.2025 14:31:22: File was deleted: empty-file.txt
+13.07.2025 14:36:48: File was renamed/moved: dasdaa123 to dasdaa1234
+13.07.2025 14:38:25: File was renamed/moved: dasdaa1234/good job! to dasdaa1234a/good job!
+13.07.2025 14:38:25: File was renamed/moved: dasdaa1234/batextra.png to dasdaa1234a/batextra.png
+13.07.2025 14:38:25: File was added: dasd.txt
+13.07.2025 14:38:25: Directory was added: dasdaa1234a
+13.07.2025 14:38:25: File was added: dasdaa1234a/extreme cat.jpg
+13.07.2025 14:38:25: Directory was added: dasdaa1234a/Nowy katalog5
+13.07.2025 14:38:25: File was added: dasdaa1234a/s.txt
+13.07.2025 14:38:25: File was deleted: dasdaa1234/Nowy katalog5
+13.07.2025 14:38:25: File was deleted: dasdaa1234/extreme cat.jpg
+13.07.2025 14:38:25: File was deleted: adsa.txt
+13.07.2025 14:38:25: File was deleted: dasdaa1234
+13.07.2025 14:38:55: File was modified: dasdaa1234a/s.txt
+13.07.2025 14:39:25: File was renamed/moved: Small Folder11 to dasdaa1234a/Small Folder11
+13.07.2025 14:39:55: File was renamed/moved: flower cat.png to asd1123/flower cat.png
+13.07.2025 14:39:55: File was renamed/moved: asd1123/flower cat.png to d/flower cat.png
+13.07.2025 14:39:55: File was renamed/moved: dasdaa1234a/batextra.png to dasdaa1234a/batexstra.png
+13.07.2025 14:39:55: File was added: flower cat.png
+13.07.2025 14:39:55: File was added: asd1123/flower cat.png
+13.07.2025 14:39:55: File was modified: dasdaa1234a/s.txt
+13.07.2025 14:41:51: File was renamed/moved: dasdaa1234a/good job! to dasdaa1234a2/good job!
+13.07.2025 14:41:51: File was renamed/moved: dasdaa1234a/s.txt to dasdaa1234a2/s.txt
+13.07.2025 14:41:51: File was renamed/moved: dasdaa1234a/Small Folder11 to dasdaa1234a2/Small Folder11
+13.07.2025 14:41:51: File was renamed/moved: dasdaa1234a/batexstra.png to dasdaa1234a2/batexstra.png
+13.07.2025 14:41:51: Directory was added: dasdaa1234a2
+13.07.2025 14:41:51: File was added: dasdaa1234a2/extreme cat.jpg
+13.07.2025 14:41:51: Directory was added: dasdaa1234a2/Nowy katalog5
+13.07.2025 14:41:51: File was added: dasdaa1234a2/Plik tekstowy.txt
+13.07.2025 14:41:51: File was deleted: dasdaa1234a/extreme cat.jpg
+13.07.2025 14:41:51: File was deleted: dasdaa1234a/Nowy katalog5
+13.07.2025 14:41:51: File was deleted: dasdaa1234a
+13.07.2025 14:42:21: File was deleted: dasdaa1234a2/s.txt
+13.07.2025 14:42:51: File was renamed/moved: dasdaa1234a2 to dasda
+13.07.2025 14:43:21: File was renamed/moved: dasda/good job! to dasda1/good job!
+13.07.2025 14:43:21: File was renamed/moved: dasda/Small Folder11 to dasda1/Small Folder11
+13.07.2025 14:43:21: File was renamed/moved: dasda/batexstra.png to dasda1/batexstra.png
+13.07.2025 14:43:21: Directory was added: dasda1
+13.07.2025 14:43:21: File was added: dasda1/extreme cat.jpg
+13.07.2025 14:43:21: Directory was added: dasda1/Nowy katalog5
+13.07.2025 14:43:21: File was added: dasda1/Plik tekstowy.txt
+13.07.2025 14:43:21: File was added: dasda1/d.txt
+13.07.2025 14:43:21: File was deleted: dasda/extreme cat.jpg
+13.07.2025 14:43:21: File was deleted: dasda/Nowy katalog5
+13.07.2025 14:43:21: File was deleted: dasda/Plik tekstowy.txt
+13.07.2025 14:43:21: File was deleted: dasda

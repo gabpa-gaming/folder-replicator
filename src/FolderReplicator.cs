@@ -55,6 +55,10 @@ namespace folder_replicator.src
 
                     break;
                 }
+                if (options.Verbose)
+                {
+                    Console.WriteLine($"Waiting for {options.Interval} minutes before the next sync...");
+                }
                 Thread.Sleep((int)(options.Interval * 60000.0d));
             }
 
@@ -122,201 +126,56 @@ namespace folder_replicator.src
 
         public void Replicate()
         {
-            var source = new FileObject(options.Source, null);
-            var destination = new FileObject(options.Destination, null);
+            var sourceTree = new FileTreeManager(options.Source);
+            var destinationTree = new FileTreeManager(options.Destination);
 
-            var sourceFiles = source.Flatten();
-            var destinationFiles = destination.Flatten();
-
-            var sourceDict = sourceFiles.ToDictionary(path => Path.GetRelativePath(options.Source, path.Path));
-            var destinationDict = destinationFiles.ToDictionary(path => Path.GetRelativePath(options.Destination, path.Path));
-
-            var movedRenamed = RenameAndMoveFiles(sourceDict, destinationDict);
-
-            var copied = CopyAddedFiles(sourceDict, destinationDict);
-
-            var removed = RemoveDeletedFiles(sourceDict, destinationDict);
-
-            var changed = UpdateChangedFiles(sourceDict, destinationDict);
+            var movedRenamed = FindAndMoveRenamedFiles(sourceTree, destinationTree);
+            var copied = CopyAddedFiles(sourceTree, destinationTree);
+            var removed = RemoveDeletedFiles(sourceTree, destinationTree);
+            var changed = UpdateChangedFiles(sourceTree, destinationTree);
 
             var totalErrors = movedRenamed.Item1 + copied.Item1 + removed.Item1 + changed.Item1;
 
-            Logger.Instance.Log($"Sync completed with {movedRenamed.Item2} renamed/moved files, " +
-                $"{copied.Item2} added files, " +
-                $"{removed.Item2} deleted files, " +
-                $"{changed.Item2} updated files, " +
-                $"and {totalErrors} errors.");
-
+            if (options.Verbose)
+            {
+                Console.WriteLine($"Sync completed with {movedRenamed.Item2} renamed/moved files, " +
+                            $"{copied.Item2} added files, " +
+                            $"{removed.Item2} deleted files, " +
+                            $"{changed.Item2} updated files, " +
+                            $"and {totalErrors} errors.");
+            }
         }
 
-        public Tuple<int, int> CopyAddedFiles(Dictionary<string, FileObject> sourceDict, Dictionary<string, FileObject> destinationDict)
-        //// <summary> Returns a tuple with the number of errors and added files. </summary>
+        private Tuple<int, int> FindAndMoveRenamedFiles(FileTreeManager sourceTree, FileTreeManager destinationTree)
         {
             int errorCount = 0;
-            int addedCount = 0;
-            foreach (var relativePath in sourceDict.Keys.Except(destinationDict.Keys)
-                .OrderBy(path => Helpers.CountUnescapedSlashes(path))) //Sort to ensure highest level directories are processed first
+            int movedCount = 0;
+
+            var sourceFiles = sourceTree.GetFiles();
+            var destinationFiles = destinationTree.GetFiles();
+
+            foreach (var (relativePath, sourceFile) in sourceFiles.OrderBy(pair => Helpers.CountUnescapedSlashes(pair.Key)))
             {
                 try
                 {
-                    if (sourceDict[relativePath].IsDirectory)
-                    {
-                        Logger.Instance.Log($"Directory was added: {relativePath}");
-                        Directory.CreateDirectory(Path.Combine(options.Destination, relativePath));
-                        Logger.Instance.Log($"Directory: {Path.Combine(options.Destination, relativePath)} was copied successfully.");
-                        addedCount++;
-                    }
-                    else
-                    {
-                        Logger.Instance.Log($"File was added: {relativePath}");
-                        var from = Path.Combine(options.Source, relativePath);
-                        var to = Path.Combine(options.Destination, relativePath);
-                        Logger.Instance.Log($"Copying file {from} to {to}...");
-                        File.Copy(from, to, true);
-                        Logger.Instance.Log($"File: {from} was copied successfully to {to}.");
-                        addedCount++;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Logger.Instance.Log($"Error copying file {relativePath}: {ex.Message}");
-                    errorCount++;
-                }
-            }
-            return Tuple.Create(errorCount, addedCount);
-        }
-
-
-        public Tuple<int, int> RemoveDeletedFiles(Dictionary<string, FileObject> sourceDict, Dictionary<string, FileObject> destinationDict)
-        //// <summary> Returns a tuple with the number of errors and removed files. </summary>
-        {
-            int errorCount = 0;
-            int deletedCount = 0;
-            foreach (var relativePath in destinationDict.Keys.Except(sourceDict.Keys)
-                .OrderByDescending(path => Helpers.CountUnescapedSlashes(path)))
-            {
-                Logger.Instance.Log($"File was deleted: {relativePath}");
-                try
-                {
-                    var fullPath = Path.Combine(options.Destination, relativePath);
-                    if (destinationDict[relativePath].IsDirectory)
-                    {
-                        if (Directory.Exists(fullPath))
-                        {
-                            Directory.Delete(fullPath, true);
-                            Logger.Instance.Log($"Directory: {relativePath} was deleted successfully.");
-                            deletedCount++;
-                        }
-                        else
-                        {
-                            Logger.Instance.Log($"Directory not found: {fullPath}");
-                        }
-                    }
-                    else
-                    {
-                        if (File.Exists(fullPath))
-                        {
-                            File.Delete(fullPath);
-                            Logger.Instance.Log($"File: {relativePath} was deleted successfully.");
-                            deletedCount++;
-                        }
-                        else
-                        {
-                            Logger.Instance.Log($"File not found: {fullPath}");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Logger.Instance.Log($"Error deleting file {relativePath}: {ex.Message}");
-                    errorCount++;
-                }
-            }
-            return Tuple.Create(errorCount, deletedCount);
-        }
-
-        public Tuple<int, int> UpdateChangedFiles(Dictionary<string, FileObject> sourceDict, Dictionary<string, FileObject> destinationDict)
-        //// <summary> Returns a tuple with the number of errors and changed files. </summary>
-        {
-            int errorCount = 0;
-            int updatedCount = 0;
-            foreach (var relativePath in sourceDict.Keys.Intersect(destinationDict.Keys))
-            {
-                if (sourceDict[relativePath].IsDirectory)
-                {
-                    continue;
-                }
-
-                if (sourceDict[relativePath].ContentsHash != destinationDict[relativePath].ContentsHash)
-                {
-                    Logger.Instance.Log($"File was modified: {relativePath}");
-                    try
-                    {
-                        var from = Path.Combine(options.Source, relativePath);
-                        var to = Path.Combine(options.Destination, relativePath);
-                        File.Copy(from, to, true);
-                        Logger.Instance.Log($"File: {from} was updated successfully to {to}.");
-                        updatedCount++;
-                    }
-                    catch (Exception ex)
-                    {
-                        Logger.Instance.Log($"Error updating file {relativePath}: {ex.Message}");
-                        errorCount++;
-                    }
-                }
-            }
-            return Tuple.Create(errorCount, updatedCount);
-        }
-
-        public Tuple<int, int> RenameAndMoveFiles(Dictionary<string, FileObject> sourceDict, Dictionary<string, FileObject> destinationDict)
-        //// <summary> Returns a tuple with the number of errors and renamed/moved files. </summary>
-        {
-            int errorCount = 0;
-            int renamedMovedCount = 0;
-
-            foreach (var relativePath in sourceDict.Keys.OrderBy(path => Helpers.CountUnescapedSlashes(path)))
-            {
-                try
-                {
-                    if (destinationDict.ContainsKey(relativePath))
-                    {
+                    if (destinationFiles.ContainsKey(relativePath))
                         continue;
-                    }
 
-                    var matchingFiles = destinationDict.Values
-                        .Where(destFile => destFile.ContentsHash == sourceDict[relativePath].ContentsHash)
+                    var matchingFiles = destinationFiles.Values
+                        .Where(destFile => destFile.Hash == sourceFile.Hash && destFile.IsDirectory == sourceFile.IsDirectory)
                         .ToList();
 
                     if (matchingFiles.Count == 1)
                     {
                         var matchingFile = matchingFiles[0];
-                        var newPath = Path.Combine(options.Destination, relativePath);
+                        var oldPath = Path.GetRelativePath(options.Destination, matchingFile.FullPath);
 
-                        if (matchingFile.Path != newPath) 
+                        if (oldPath != relativePath)
                         {
-                            var oldKey = Path.GetRelativePath(options.Destination, matchingFile.Path);
-                                                        var parentDir = Directory.GetParent(newPath)?.FullName;
-                            if (parentDir != null && !Directory.Exists(parentDir))
-                            {
-                                Directory.CreateDirectory(parentDir);
-                                Logger.Instance.Log($"Created parent directory: {parentDir}");
-                            }
-                            matchingFile.Move(newPath);
-
-                            destinationDict.Remove(oldKey);
-                            destinationDict[relativePath] = matchingFile;
-
-                            if (matchingFile.IsDirectory)
-                            {
-                                UpdateChildPathsInDictionary(matchingFile, oldKey, relativePath, destinationDict);
-                            }
-
-                            renamedMovedCount++;
-                            Logger.Instance.Log($"File was renamed/moved: {oldKey} to {relativePath}");
-                        }
-                        else
-                        {
-                            Logger.Instance.Log($"Skipping move operation as source and destination paths are identical: {newPath}");
+                            Logger.Instance.Log($"File was renamed/moved: {oldPath} to {relativePath}");
+                            destinationTree.MoveFile(oldPath, relativePath);
+                            Logger.Instance.Log($"File was moved successfully: {oldPath} to {relativePath}");
+                            movedCount++;
                         }
                     }
                 }
@@ -327,27 +186,103 @@ namespace folder_replicator.src
                 }
             }
 
-            return Tuple.Create(errorCount, renamedMovedCount);
+            return Tuple.Create(errorCount, movedCount);
         }
 
-        private void UpdateChildPathsInDictionary(FileObject parent, string oldParentKey, string newParentKey, Dictionary<string, FileObject> destinationDict)
+        private Tuple<int, int> CopyAddedFiles(FileTreeManager sourceTree, FileTreeManager destinationTree)
         {
-            foreach (var child in parent.Files)
+            int errorCount = 0;
+            int addedCount = 0;
+
+            var sourceFiles = sourceTree.GetFiles();
+            var destinationFiles = destinationTree.GetFiles();
+
+            var filesToAdd = sourceFiles.Keys.Except(destinationFiles.Keys)
+                .OrderBy(path => Helpers.CountUnescapedSlashes(path));
+
+            foreach (var relativePath in filesToAdd)
             {
-                var oldChildKey = Path.Combine(oldParentKey, child.Name);
-                var newChildKey = Path.Combine(newParentKey, child.Name);
-
-                if (destinationDict.ContainsKey(oldChildKey))
+                try
                 {
-                    destinationDict.Remove(oldChildKey);
+                    sourceTree.CopyFile(relativePath, options.Destination);
+                    addedCount++;
+                    
+                    var fileType = sourceFiles[relativePath].IsDirectory ? "Directory" : "File";
+                    Logger.Instance.Log($"{fileType} was added: {relativePath}");
                 }
-                destinationDict[newChildKey] = child;
-
-                if (child.IsDirectory)
+                catch (Exception ex)
                 {
-                    UpdateChildPathsInDictionary(child, oldChildKey, newChildKey, destinationDict);
+                    Logger.Instance.Log($"Error copying file {relativePath}: {ex.Message}");
+                    errorCount++;
                 }
             }
+
+            return Tuple.Create(errorCount, addedCount);
+        }
+
+        private Tuple<int, int> RemoveDeletedFiles(FileTreeManager sourceTree, FileTreeManager destinationTree)
+        {
+            int errorCount = 0;
+            int deletedCount = 0;
+
+            var sourceFiles = sourceTree.GetFiles();
+            var destinationFiles = destinationTree.GetFiles();
+
+            var filesToDelete = destinationFiles.Keys.Except(sourceFiles.Keys)
+                .OrderByDescending(path => Helpers.CountUnescapedSlashes(path));
+
+            foreach (var relativePath in filesToDelete)
+            {
+                try
+                {
+                    destinationTree.DeleteFile(relativePath);
+                    deletedCount++;
+                    
+                    var fileType = destinationFiles.ContainsKey(relativePath) && destinationFiles[relativePath].IsDirectory ? "Directory" : "File";
+                    Logger.Instance.Log($"{fileType} was deleted: {relativePath}");
+                }
+                catch (Exception ex)
+                {
+                    Logger.Instance.Log($"Error deleting file {relativePath}: {ex.Message}");
+                    errorCount++;
+                }
+            }
+
+            return Tuple.Create(errorCount, deletedCount);
+        }
+
+        private Tuple<int, int> UpdateChangedFiles(FileTreeManager sourceTree, FileTreeManager destinationTree)
+        {
+            int errorCount = 0;
+            int updatedCount = 0;
+
+            var sourceFiles = sourceTree.GetFiles();
+            var destinationFiles = destinationTree.GetFiles();
+
+            var commonFiles = sourceFiles.Keys.Intersect(destinationFiles.Keys);
+
+            foreach (var relativePath in commonFiles)
+            {
+                try
+                {
+                    var sourceFile = sourceFiles[relativePath];
+                    var destinationFile = destinationFiles[relativePath];
+
+                    if (!sourceFile.IsDirectory && sourceFile.Hash != destinationFile.Hash)
+                    {
+                        sourceTree.CopyFile(relativePath, options.Destination);
+                        updatedCount++;
+                        Logger.Instance.Log($"File was modified: {relativePath}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.Instance.Log($"Error updating file {relativePath}: {ex.Message}");
+                    errorCount++;
+                }
+            }
+
+            return Tuple.Create(errorCount, updatedCount);
         }
     }
 }
